@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap');
+
+*{  
+  
+    border:none;
+    outline: none;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+:root{
+    --blue1: rgb(39, 173, 242);
+    --blue2: #287cfc;
+    --blue3: #3048e6;
+    --blue4: #4528fc;
+    --purpple: #7a27f2;
+}
+    
+
+form{
+    font-family: 'Poppins', "Arial","serif";
+    width: 100vw;
+    height: 100vh;
+    overflow-x: auto;
+    display: flex;
+    background-image: url('../assets/fundo-azul.png');
+    background-size: cover;
+    
+}
+form::-webkit-scrollbar{
+    display: none;
+}
+
+form .question, form .result{
+    gap: 20px;
+    flex: none;
+    width: 100vw;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+form h1 {
+    font-size: 45px;
+    position: absolute;
+    text-align: center;
+    width: 100vw;
+    margin-top: 50px;
+    color: rgb(240, 240, 240);
+   
+}
+
+form h1 img{
+    width: 60px;
+}
+
+form .question h2 {
+    font-size: 35px;
+    width: 90%;
+    text-align: justify;
+    max-width: 800px;
+   margin: 0 auto;
+    color:  #fff;
+
+}
+.question div{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    
+    
+}
+.question div span{
+    font-size: 18px;
+    font-weight: 600;
+}
+.question div input {
+    display: inline-block;
+   clip-path: circle();
+    height: 50px;
+    width: 50px;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+.question div span{
+    font-size: 30px;
+    color: white;
+}
+
+.buttons .button{
+   
+
+    background: transparent;
+    border:  none;
+    cursor: pointer;
+    transition-duration: .4ms;
+}
+.button:hover{
+    opacity: 0.8;
+}
+
+.button img{
+    width: 60px;
+    
+    
+}
+
+.arrowToRight{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    
+    transform: rotate(180deg)
+}
+.arrowToLeft{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    
+    right: 0;
+    margin: auto;
+   
+  
+}
+
+
+
+.result{
+    background-color: tomato;
+}
+.result h2{
+    font-size: 45px;
+    color: #fff
+}
+.result input{
+    display: none;
+}
+@media screen and (max-width: 768px){
+  
+    
+    form h1{
+        font-size: 32px;
+        
+    }
+    form .question h2{
+        font-size: 20px;
+    }
+    .question{
+        text-align: center;
+        margin-top: 20px;
+    }
+}
