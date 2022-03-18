@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../assets/dpoanIcon.png" type="image/x-icon">
+    <title>D'poan teste</title>
+</head>
+<body>
+    
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap');
+
+            *{  
+            
+                border:none;
+                outline: none;
+                margin:0;
+                padding: 0;
+                box-sizing: border-box;
+                
+            }
+            :root{
+                --blue1: rgb(39, 173, 242);
+                --blue2: #287cfc;
+                --blue3: #3048e6;
+                --blue4: #4528fc;
+                --purpple: #7a27f2;
+            }
+                
+
+            form{
+                font-family: 'Poppins', "Arial","serif";
+                width: 100vw;
+                height: 100vh;
+                overflow-x: auto;
+                display: flex;
+                background-image: url('../assets/fundo-azul.png');
+                background-size: cover;
+                
+            }
+            form::-webkit-scrollbar{
+                display: none;
+            }
+
+            form .question, form .result{
+                gap: 20px;
+                flex: none;
+                width: 100vw;
+            
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                
+            }
+            form h1 {
+                font-size: 45px;
+                position: absolute;
+                text-align: center;
+                width: 100vw;
+                margin-top: 50px;
+                color: rgb(240, 240, 240);
+            
+            }
+
+            form h1 img{
+                width: 60px;
+            }
+
+            form .question h2 {
+                font-size: 35px;
+                width: 90%;
+                text-align: justify;
+                max-width: 800px;
+            margin: 0 auto;
+                color:  #fff;
+
+            }
+            .question div{
+                margin-top: 10px;
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                
+                
+            }
+            .question div span{
+                font-size: 18px;
+                font-weight: 600;
+            }
+            .question div input {
+                display: inline-block;
+            clip-path: circle();
+                height: 50px;
+                width: 50px;
+                box-shadow: 0 0 0 0;
+                border: 0 none;
+                outline: 0;
+            }
+            .question div span{
+                font-size: 30px;
+                color: white;
+            }
+
+            .buttons .button{
+            
+
+                background: transparent;
+                border:  none;
+                cursor: pointer;
+                transition-duration: .4ms;
+            }
+            .button:hover{
+                opacity: 0.8;
+            }
+
+            .button img{
+                width: 60px;
+                
+                
+            }
+
+            .arrowToRight{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                
+                transform: rotate(180deg)
+            }
+            .arrowToLeft{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                
+                right: 0;
+                margin: auto;
+            
+            
+            }
+
+
+
+            .result{
+                background-color: rgb(14, 13, 13);
+            }
+            .result h2{
+                font-size: 45px;
+                color: #fff
+            }
+            .result input{
+                display: none;
+            }
+            @media screen and (max-width: 800px){
+            
+                
+                form h1{
+                    font-size: 32px;
+                    
+                }
+                form .question h2{
+                    font-size: 20px;
+                }
+                .question{
+                    text-align: center;
+                    margin-top: 20px;
+                }
+            }
+
+            @media screen and (max-width: 600px){
+
+                form h1{
+                    font-size: 25px;
+                    padding: 0 8px;
+                    
+                }
+                form h1 img{
+                    display: none;
+                }
+                form .question h2, .result h2{
+                    text-align: center;
+                    font-size: 18px;
+                    padding: 0 8px;
+                }
+                
+                .question{
+                    text-align: center;
+                    margin-top: 20px;
+                }
+                .question div span{
+                    font-size: 20px;
+                }
+                .question div input{
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+
+        </style>
+    <!--html-->
+        <main>
+            
+            <form id="allQuestions" >
+                <section class="formHeader">
+                    <h1>Teste de ansiedade D'poan
+                        <img src="../assets/dpoanIcon-removebg-preview.png" alt="">
+                    </h1>
+                </section>
+                <section class="question">
+                    <h2>1. Você tem preocupações excessivas e frequentes em relação a eventos futuros? </h2>
+                        <div>
+                            <input type="checkbox" name="check[]" id="check[]" class="radio" value="5" onClick="soma()"/> <span>Sim</span>
+                            <input type="checkbox" name="check[]" id="check[]" class="radio" value="0" onClick="soma()"/> <span>Não</span>
+                        </div> 
+                       <!-- <div class="buttons">
+                            <div class="button" ><img src="../assets/chevron.png" alt="seta de cor preta, apontando para a esquerda, para voltar para a pergunta anterior" class="arrowToRight" onclick="handleScrollLeft()"></div>
+                            <div class="button"><img src="../assets/chevron.png" alt="seta de cor preta, apontando para a direita, para chamar a próxima pergunta" class="arrowToLeft" onclick="handleScrollRight()"></div>
+                        </div> -->   
+                </section>
+          
+                <section class="question">
+                    <h2>2. Tem dificuldade em deixar de pensar nas preocupações?</h2>
+                    <div>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="5" onClick="soma()"/> <span>Sim</span>
+                            <input type="checkbox" name="check[]" id="check[]" class="radio" value="0" onClick="soma()"/> <span>Não</span>
+                    </div>
+                </section>
+            
+                <section class="question">
+                    <h2>3. Sente uma inquietação constante? </h2>
+                    <div>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="3" onClick="soma()"/> <span>Sim</span>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="0" onClick="soma()"/> <span>Não</span>
+                    </div>             
+                </section>
+            
+                <section class="question">
+                    <h2>4. Sente que está constantemente com os "nervos à flor da pele"?</h2>
+                    <div>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="3" onClick="soma()"/> <span>Sim</span>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="0" onClick="soma()"/> <span>Não</span>
+                    </div>     
+                </section>
+            
+                <section class="question">
+                    <h2>5.Sente-se sempre cansado?  </h2>
+                    <div>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="1" onClick="soma()"/> <span><span>Sim</span></span>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="0" onClick="soma()"/> <span>Não</span>
+                    </div>             
+                </section>
+            
+                <section class="question">
+                    <h2>6. Tem dificuldade de se concentrar em atividades que antes não tinha dificuldade?</h2>
+                    <div>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="1" onClick="soma()"/> <span>Sim</span>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="0" onClick="soma()"/> <span>Não</span>
+                    </div>      
+                </section>
+            
+                <section class="question">
+                    <h2>7. Sente-se irritado constantemente? </h2>
+                    <div>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="2" onClick="soma()"/> <span>Sim</span>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="0" onClick="soma()"/> <span>Não</span>
+                    </div>          
+                </section>
+            
+                <section class="question">
+                    <h2>8. Tem tensões musculares (p. ex: nos ombros e costas), mas não por atividade física? </h2>
+                    <div>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="3" onClick="soma()"/> <span>Sim</span>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="0" onClick="soma()"/> <span>Não</span>
+                    </div>      
+                </section>
+            
+                <section class="question">
+                    <h2>9. Tem dificuldades para dormir ou dorme mal?  </h2>
+                    <div>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="2" onClick="soma()"/> <span>Sim</span> 
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="0" onClick="soma()"/> <span>Não </span>
+                    </div>             
+                </section>
+            
+                <section class="question">
+                    <h2>10 Tem dificuldades para descansar quando não está fazendo nada? </h2>
+                    <div>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="3" onClick="soma()"/> <span>Sim</span>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="0" onClick="soma()"/> <span>Não</span>
+                    </div>      
+                </section>
+                <section class="question">
+                    <h2>11. As dificuldades que sente interferem na sua vida afetiva, profissional ou acadêmica? </h2>
+                    <div>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="5" onClick="soma()"/> <span>Sim</span>
+                        <input type="checkbox" name="check[]" id="check[]" class="radio" value="0" onClick="soma()"/> <span>Não</span>
+                    </div>     
+                </section>
+                <section class="result">
+                    <h2>Agurde momento, você está sendo redirecionado </h2>
+                    <input type="text" name="total_valor" value="" size="30"/>
+                </section>
+            
+             </form>
+        </main>
+    <!--html-->
+    <script>
+        
+        let handleScroll = {
+            allQuestionsCarossel: document.getElementById('allQuestions'),
+
+            toRight(interval = 200){
+                    let allQuestionsCarossel =  handleScroll.allQuestionsCarossel
+                    let scroollViewWidht = allQuestionsCarossel.offsetWidth
+                    
+                    setTimeout(() => {
+                            allQuestionsCarossel.scrollLeft += scroollViewWidht
+                    }, interval);
+                    clearTimeout
+            },
+            toLeft(){
+                    let allQuestionsCarossel =  handleScroll.allQuestionsCarossel
+                    let scroollViewWidht = allQuestionsCarossel.offsetWidth
+                    
+                    setTimeout(() => {
+                            allQuestionsCarossel.scrollLeft -= scroollViewWidht
+                    }, interval);
+                    clearTimeout
+            }
+        }
+        function redirectUser(result = 0){
+            
+            if(result <= 8){
+                    window.location.assign('https://ansiedade.futuro-agora.com/azul')
+                    return
+            }
+            if(result <= 17){
+                    
+                    window.location.assign('https://ansiedade.futuro-agora.com/cinza')
+                    return
+            }
+            if(result <= 33){
+                    window.location.assign('https://ansiedade.futuro-agora.com/vermelho')
+            }
+        }
+
+
+        function checar(){
+            var total = 0;
+            let InputsChecked = 0
+            var form = document.forms[0]; //pega o primeiro form q aparecer
+                for (var i=0;i < form.elements.length;i++) //checa o numero de elementos no form
+                {
+                        
+                        if(form.elements[i].type == "checkbox") //procura somente pelos 'checkbox'
+                        {      if(form.elements[i].checked){
+                            InputsChecked ++
+                    }
+                                checa = form.elements[i]; //pega o atributo ID de cada checkbox
+                                total += parseInt(checa.value);
+
+            }
+                }
+                
+                if(InputsChecked === 11){
+                        redirectUser(total)
+                }
+                
+                return total; //atualiza o campo
+            
+            }
+            function soma()
+            
+            {
+            let InputsChecked = 0
+            var total2 = 0;
+            var form2 = document.forms[0]; //pega o primeiro form q aparecer
+                for (var i2=0;i2 < form2.elements.length;i2++) //checa o numero de elementos no form
+
+                {
+                        if(form2.elements[i2].type == "checkbox") //procura somente pelos 'checkbox'
+                        {
+                                if(form2.elements[i2].checked){
+                                        InputsChecked ++
+                                }
+                                checa2 = form2.elements[i2]; //pega o atributo ID de cada checkbox
+                                if(checa2.checked)
+            {
+            total2 +=  parseInt(checa2.value);
+            
+            }
+            
+            
+            }
+        
+                }
+                form2.total_valor.value = checar()-parseInt(checar() - total2);
+                //console.log(form2.total_valor.value)
+                
+                if(InputsChecked === 11){
+                        redirectUser(form2.total_valor.value)
+                }
+                handleScroll.toRight(200)
+            }
+            
+
+    </script>
+</body>
+</html>
