@@ -36,8 +36,23 @@ function redirectUser(result = 0){
               window.location.assign('https://ansiedade.futuro-agora.com/vermelho')
        }
 }
+let handleCheckbox = {
+       CheckCheckbox(){
+              let numberBoxChecked = 0
+              let allCheckBoxes = document.querySelectorAll('.checkbox')
+              allCheckBoxes.forEach(checkBox  =>{
+                     if(checkBox.checked){
+                            numberBoxChecked++
+                     }
+                     console.log(numberBoxChecked)
+              })
+       
+              return {numberBoxChecked}
+       }
+}
+handleCheckbox.CheckCheckbox()
 
-
+console.log(handleCheckbox.CheckCheckbox())
 function checar(){
     var total = 0;
     let InputsChecked = 0
@@ -65,6 +80,7 @@ function checar(){
     function soma()
     
     {
+           handleCheckbox.CheckCheckbox().numberBoxChecked
     let InputsChecked = 0
     var total2 = 0;
     var form2 = document.forms[0]; //pega o primeiro form q aparecer
