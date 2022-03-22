@@ -37,77 +37,48 @@ function redirectUser(result = 0){
        }
 }
 let handleCheckbox = {
+       allCheckBoxes: document.querySelectorAll('.checkbox'),
        CheckCheckbox(){
+              let boxValues = {}
               let numberBoxChecked = 0
-              let allCheckBoxes = document.querySelectorAll('.checkbox')
+              let {allCheckBoxes} = handleCheckbox
+
               allCheckBoxes.forEach(checkBox  =>{
                      if(checkBox.checked){
                             numberBoxChecked++
+                            
+                            boxValues[`box${numberBoxChecked}`] = checkBox.value
+                            
                      }
-                     console.log(numberBoxChecked)
+                     console.log(boxValues)
+                     
+                     
               })
        
-              return {numberBoxChecked}
+              return {numberBoxChecked,boxValues}
+       },
+       getCheckedValues(){
+       },
+       sumValuesChecked(){
+              let total = 0
+              let {boxValues} = handleCheckbox.CheckCheckbox()
+              
+              Object.keys(boxValues).map((key,value)=>{
+                     
+                     let newValue = parseInt(boxValues[key])
+                     total += newValue
+                    
+              })
+              return {total}
        }
+
+       
 }
-handleCheckbox.CheckCheckbox()
 
-console.log(handleCheckbox.CheckCheckbox())
-function checar(){
-    var total = 0;
-    let InputsChecked = 0
-    var form = document.forms[0]; //pega o primeiro form q aparecer
-           for (var i=0;i < form.elements.length;i++) //checa o numero de elementos no form
-           {
-                  
-                   if(form.elements[i].type == "checkbox") //procura somente pelos 'checkbox'
-                   {      if(form.elements[i].checked){
-                     InputsChecked ++
-              }
-                           checa = form.elements[i]; //pega o atributo ID de cada checkbox
-                          total += parseInt(checa.value);
-
-    }
-           }
+function soma(){
            
-           if(InputsChecked === 11){
-                  redirectUser(total)
-           }
-         
-           return total; //atualiza o campo
-    
-    }
-    function soma()
-    
-    {
-           handleCheckbox.CheckCheckbox().numberBoxChecked
-    let InputsChecked = 0
-    var total2 = 0;
-    var form2 = document.forms[0]; //pega o primeiro form q aparecer
-           for (var i2=0;i2 < form2.elements.length;i2++) //checa o numero de elementos no form
-
-           {
-                   if(form2.elements[i2].type == "checkbox") //procura somente pelos 'checkbox'
-                   {
-                          if(form2.elements[i2].checked){
-                                 InputsChecked ++
-                          }
-                           checa2 = form2.elements[i2]; //pega o atributo ID de cada checkbox
-                          if(checa2.checked)
-    {
-    total2 +=  parseInt(checa2.value);
-    
-    }
-    
-    
-    }
-   
-           }
-          form2.total_valor.value = checar()-parseInt(checar() - total2);
-          //console.log(form2.total_valor.value)
-        
-           if(InputsChecked === 11){
-                 redirectUser(form2.total_valor.value)
+           if(handleCheckbox.CheckCheckbox().numberBoxChecked == 11){
+                 redirectUser(handleCheckbox.sumValuesChecked().total)
            }
           handleScroll.toRight(200)
     }
