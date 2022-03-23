@@ -19,7 +19,7 @@
     
 }
 body{
-    overflow-x: hidden;
+    overflow: hidden;
 }
 :root{
     --blue1: rgb(39, 173, 242);
