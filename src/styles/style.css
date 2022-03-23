@@ -1,5 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&Lato:ital,wght@0,400;0,700;0,900;1,300;1,400&family=Mulish:ital,wght@0,400;0,600;1,500&family=Roboto:wght@400;500&display=swap');
 
+@font-face {
+    font-family: 'Stencil';
+    src: url("../fonts/StencilStd.otf");
+   
+}
+@font-face {
+    font-family: "Akwe";
+    src: url('../fonts/AkweProRegular.otf');
+}
 *{  
   
     border:none;
@@ -9,15 +18,92 @@
     box-sizing: border-box;
     
 }
+body{
+    overflow-x: hidden;
+}
 :root{
     --blue1: rgb(39, 173, 242);
     --blue2: #287cfc;
     --blue3: #3048e6;
     --blue4: #4528fc;
     --purpple: #7a27f2;
+    --gray: #343434;
 }
+header{
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
     
+    color: white;
+}
 
+header h1{
+    font-family: 'Stencil','Times New Roman', Times, serif;
+    display: flex;
+    padding: 20px 0px 0px 50px;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--gray);
+    font-size: 50px ;
+}
+header h1 span{
+    position: relative;
+    top: -20px;
+    font-size: 35px;
+    font-family: "Akwe";
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.89)
+}
+header .headerMain{
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    background-size: 100% 100%;
+    object-fit: fill;
+    background-image: url('../assets/youngLady.png');
+}
+header .headerMain h2{
+    
+    text-align: left;
+    font-size: 37px;
+    margin-top: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande'
+}
+header .headerMain h2 span{
+    font-size: 52px; 
+    font-family: 'Lato',"Arial";
+}
+header .headerMain p{
+    font-family: 'Mulish',Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+header .headerMain p,header .headerMain h3{
+    padding: 0 20px;
+    max-width: 500px;
+}
+header .headerMain h3{
+    font: 400 19px "Roboto";
+    
+}
+header button{
+
+    font: 400 17px 'Poppins',Arial, Helvetica, sans-serif;
+    border-radius: 30px;
+}
+header button a {
+    padding: 20px;
+
+    display: block;
+    text-underline-offset: none;
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    height: 100%;
+    
+   
+}
 form{
     font-family: 'Poppins', "Arial","serif";
     width: 100vw;
@@ -142,8 +228,17 @@ form .question h2 {
 .result input{
     display: none;
 }
+@media screen and (max-width: 900px){
+    header .headerMain{
+        background-size: cover;
+        background-position: center;
+        background-position-x: 80%;
+    }
+}
 @media screen and (max-width: 800px){
-  
+    header h1{
+        text-align: center;
+    }
     
     form h1{
         font-size: 32px;
@@ -159,7 +254,30 @@ form .question h2 {
 }
 
 @media screen and (max-width: 600px){
-
+    header .headerMain{
+        gap: 18px;
+        background-position-x: 0;
+        background-size: 220% 100%;
+        background-clip: content-box;
+        background-repeat: no-repeat;
+        background-position-x: 80%;
+    }
+    header h1 {
+        padding: 15px 0px 10px 0px;
+    }
+    header .headerMain h2{
+        font-size: 20px;
+        text-align: center;
+    }
+    header .headerMain h2 span{
+        font-size: 35px;
+    }
+    header .headerMain p{
+        font-size: 14px;
+    }
+    header .headerMain h3{
+        font-size: 17px;
+    }
     form h1{
         font-size: 25px;
         padding: 0 8px;
@@ -184,5 +302,21 @@ form .question h2 {
     .question div input{
         width: 35px;
         height: 35px;
+    }
+}
+@media screen and (max-width: 420px){
+   
+    header button{
+        max-width: 90%;
+        font-size: 15px;
+    }
+    header a{
+        padding: 10px;
+     
+    }
+}
+@media screen and (max-height: 600px){
+    header .headerMain{
+        gap: 35px;
     }
 }

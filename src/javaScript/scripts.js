@@ -22,9 +22,14 @@ let handleScroll = {
        }
 }
 function redirectUser(result = 0){
-       
+       handleInputRadios.uncheckInputsRadios()
        if(result <= 8){
-              window.location.assign('https://ansiedade.futuro-agora.com/azul')
+              try {
+                     window.location.assign('https://ansiedade.futuro-agora.com/azul')
+              } catch (error) {
+                     
+              }
+                      window.location.assign('https://ansiedade.futuro-agora.com/azul')
               return
        }
        if(result <= 17){
@@ -36,32 +41,36 @@ function redirectUser(result = 0){
               window.location.assign('https://ansiedade.futuro-agora.com/vermelho')
        }
 }
-let handleCheckbox = {
-       allCheckBoxes: document.querySelectorAll('.checkbox'),
-       CheckCheckbox(){
+let handleInputRadios = {
+       allInputRadios: document.querySelectorAll('.radio'),
+       CheckInputRadio(){
               let boxValues = {}
               let numberBoxChecked = 0
-              let {allCheckBoxes} = handleCheckbox
+              let {allInputRadios} = handleInputRadios
 
-              allCheckBoxes.forEach(checkBox  =>{
+              allInputRadios.forEach(checkBox  =>{
                      if(checkBox.checked){
                             numberBoxChecked++
                             
                             boxValues[`box${numberBoxChecked}`] = checkBox.value
                             
                      }
-                     console.log(boxValues)
-                     
-                     
+                       
               })
        
               return {numberBoxChecked,boxValues}
        },
        getCheckedValues(){
        },
+       uncheckInputsRadios(){
+              let  {allInputRadios} = handleInputRadios
+              allInputRadios.forEach(inputRadio =>{
+             
+              })
+       },
        sumValuesChecked(){
               let total = 0
-              let {boxValues} = handleCheckbox.CheckCheckbox()
+              let {boxValues} = handleInputRadios.CheckInputRadio()
               
               Object.keys(boxValues).map((key,value)=>{
                      
@@ -76,9 +85,10 @@ let handleCheckbox = {
 }
 
 function soma(){
+       
            
-           if(handleCheckbox.CheckCheckbox().numberBoxChecked == 11){
-                 redirectUser(handleCheckbox.sumValuesChecked().total)
+           if(handleInputRadios.CheckInputRadio().numberBoxChecked == 11){
+                 redirectUser(handleInputRadios.sumValuesChecked().total)
            }
           handleScroll.toRight(200)
     }
