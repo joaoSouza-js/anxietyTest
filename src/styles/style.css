@@ -239,7 +239,10 @@ form .question h2 {
     header h1{
         text-align: center;
     }
-    
+    header h2{
+      
+        padding: 0 3px;
+    }
     form h1{
         font-size: 32px;
         
