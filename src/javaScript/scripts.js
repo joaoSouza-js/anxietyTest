@@ -22,23 +22,33 @@ let handleScroll = {
        }
 }
 function redirectUser(result = 0){
-       handleInputRadios.uncheckInputsRadios()
+ 
+      
        if(result <= 8){
               try {
-                     window.location.assign('https://ansiedade.futuro-agora.com/azul')
+                     window.location.href = ('https://ansiedade.futuro-agora.com/azul')
               } catch (error) {
                      
               }
                       window.location.assign('https://ansiedade.futuro-agora.com/azul')
+                      useful.alertMessage('você está sendo redirecionado')
               return
        }
        if(result <= 17){
               
               window.location.assign('https://ansiedade.futuro-agora.com/cinza')
+              useful.alertMessage('você está sendo redirecionado')
               return
        }
        if(result <= 33){
               window.location.assign('https://ansiedade.futuro-agora.com/vermelho')
+              useful.alertMessage('você está sendo redirecionado')
+       }
+       
+}
+let useful = {
+       alertMessage(message = 'alerta'){
+              alert(message)
        }
 }
 let handleInputRadios = {
@@ -60,14 +70,8 @@ let handleInputRadios = {
        
               return {numberBoxChecked,boxValues}
        },
-       getCheckedValues(){
-       },
-       uncheckInputsRadios(){
-              let  {allInputRadios} = handleInputRadios
-              allInputRadios.forEach(inputRadio =>{
-             
-              })
-       },
+       
+      
        sumValuesChecked(){
               let total = 0
               let {boxValues} = handleInputRadios.CheckInputRadio()
@@ -88,7 +92,9 @@ function soma(){
        
            
            if(handleInputRadios.CheckInputRadio().numberBoxChecked == 11){
+       
                  redirectUser(handleInputRadios.sumValuesChecked().total)
+                 
            }
           handleScroll.toRight(200)
     }
